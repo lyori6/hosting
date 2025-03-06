@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>בדק בית מקצועי - גודר הנדסה</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap');
+    
+    body {
+      font-family: 'Heebo', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      direction: rtl;
+    }
+    
+    .container {
+      width: 21cm;
+      height: 29.7cm;
+      margin: 0 auto;
+      padding: 2cm;
+      background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .background-element {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.01;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%231a5276' d='M10 10h80v80h-80z'/%3E%3C/svg%3E") repeat;
+      z-index: 0;
+    }
+    
+    .header {
+      text-align: center;
+      color: #1a5276;
+      margin-bottom: 2cm;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .logo {
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 0.5cm;
+      color: #1a5276;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      font-size: 32px;
+      margin: 0.3cm 0;
+      background: linear-gradient(90deg, #1a5276, #2980b9);
+      color: white;
+      padding: 0.3cm;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .header h2 {
+      font-size: 24px;
+      color: #2874a6;
+      margin-top: 0.5cm;
+    }
+    
+    .header h3 {
+      font-size: 20px;
+      color: #2E4053;
+      margin-top: 0.3cm;
+      font-weight: 500;
+    }
+    
+    .divider {
+      border: none;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #3498db, transparent);
+      margin: 0.7cm 0;
+    }
+    
+    .two-columns {
+      display: flex;
+      margin-bottom: 0.5cm;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .content {
+      flex: 3;
+      padding-left: 1.5cm;
+    }
+    
+    .content h3 {
+      color: #1a5276;
+      font-size: 22px;
+      margin-bottom: 0.3cm;
+      position: relative;
+      padding-right: 0.4cm;
+    }
+    
+    .content h3:before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background-color: #3498db;
+      border-radius: 50%;
+    }
+    
+    .content ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .content li {
+      margin-bottom: 0.3cm;
+      padding-right: 0.7cm;
+      font-size: 18px;
+      position: relative;
+    }
+    
+    .content li:before {
+      content: '✓';
+      position: absolute;
+      right: 0;
+      color: #3498db;
+      font-weight: bold;
+    }
+    
+    .sidebar {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .special-offer {
+      background: linear-gradient(135deg, #ebf5fb, #d6eaf8);
+      padding: 0.7cm;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 1cm;
+      border: 2px dashed #3498db;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transform: rotate(2deg);
+    }
+    
+    .special-offer h3 {
+      color: #1a5276;
+      margin: 0;
+      font-size: 20px;
+    }
+    
+    .contact-container {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 0.5cm;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    
+    .contact, .website {
+      margin-top: 0.3cm;
+    }
+    
+    .contact h3, .website h3 {
+      font-size: 18px;
+      color: #2E4053;
+      margin-bottom: 0.1cm;
+    }
+    
+    .contact p, .website p {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2874a6;
+      margin: 0.2cm 0;
+    }
+    
+    /* QR code styling within sidebar */
+    .qr-container {
+      display: flex;
+      align-items: center;
+      margin-top: 1cm;
+      width: 100%;
+      justify-content: center;
+      padding: 0.5cm;
+      box-sizing: border-box;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .qr-container .qr-title {
+      font-size: 16px;
+      color: #2E4053;
+      margin-right: 0.5cm;
+      white-space: nowrap;
+    }
+    
+    .qr-container img {
+      width: 100px;
+      height: 100px;
+      padding: 0.2cm;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 2cm;
+      color: #1a5276;
+      font-size: 28px;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+      padding: 0.5cm;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+    }
+    
+    .icon {
+      display: inline-block;
+      margin-left: 5px;
+      font-size: 110%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="background-element"></div>
+    
+    <div class="header">
+      <div class="logo">גודר הנדסה</div>
+      <h1>🔹 בדק בית מקצועי לדירה שלכם 🔹</h1>
+      <h2>קיבלתם דירה חדשה מהקבלן? מזל טוב! 🎉</h2>
+      <h3>וודאו שהדירה שלכם בנויה בצורה תקינה ועומדת בכל התקנים הישראלים!</h3>
+    </div>
+    
+    <hr class="divider">
+    
+    <div class="two-columns">
+      <div class="content">
+        <h3>מה כוללת הבדיקה?</h3>
+        <ul>
+          <li>בדיקה מקיפה על ידי מהנדס מוסמך ומנוסה</li>
+          <li>שימוש במכשור מדידה מתקדם ומקצועי</li>
+          <li>איתור ליקויי בנייה נסתרים בשלד, אינסטלציה, חשמל ועוד</li>
+          <li>זיהוי בעיות שעלולות להשפיע על איכות החיים והבטיחות</li>
+          <li><strong>דוח הנדסי מפורט לקבלן</strong> – כדי שתוכלו לדרוש תיקונים בזמן!</li>
+          <li>ליווי מקצועי בתהליך התיקונים מול הקבלן</li>
+        </ul>
+      </div>
+      
+      <div class="sidebar">
+        <div class="special-offer">
+          <h3>📢 הטבה מיוחדת לדיירי הבניין! 📢</h3>
+          <p style="margin: 0.2cm 0; font-weight: bold; font-size: 18px;">
+            הנחה של 15% לבדיקה מרוכזת<br>
+            לשכנים באותו הבניין
+          </p>
+        </div>
+        
+        <div class="contact-container">
+          <div class="contact">
+            <h3>לתיאום בדיקה:</h3>
+            <p><span class="icon">📞</span> 054-510096</p>
+          </div>
+          
+          <div class="website">
+            <h3>לפרטים נוספים:</h3>
+            <p><span class="icon">🌐</span> goder-eng.com</p>
+          </div>
+        </div>
+        
+        <div class="qr-container">
+          <div class="qr-title">סרקו לצפייה בדוח לדוגמה:</div>
+          <img src="/api/placeholder/150/150" alt="QR קוד לדוגמת דוח">
+        </div>
+      </div>
+    </div>
+    
+    <hr class="divider">
+    
+    <div class="footer">
+      גודר הנדסה - לבית בטוח ואיכותי
+    </div>
+  </div>
+</body>
+</html>
